@@ -1,0 +1,49 @@
+\chapter{INTRODUCTION}
+
+\section{Background}
+
+% Ubah paragraf-paragraf berikut sesuai dengan latar belakang dari tugas akhir
+\sloppy
+
+Autonomous vehicles are rapidly evolving from experimental platform into commercially and operationally viable systems accross various domains in the likes of urban mobility, logistics, and industrial automation. Research for autonomous mobility have been recently demonstrated in Indonesia for both civilian~\parencite{icar_drl} and industrial~\parencite{brin2024autonomous} applications, indicating an increasing urgency for development in autonomous mobility systems. One crucial part or subsystem required for autonomous mobility is environmental perception. This includes the collection of high-level information from the surroundings of the vehicle through any means. The high-level informations from the perception system will be passed on to motion control or navigation algorithms to determine the best course of action for any given scenario.
+
+The inevitable necessity for \emph{onboard} real-time perception systems in autonomous vehicles stems from safety and operational viability requirements. The ability to prevent the majority of traffic accidents, as suggested by various studies on collision avoidance systems \parencite{external_dp_av}, relies entirely on the vehicle's capability to make decisions within sub-second timeframes, outside of any reliance towards cloud-based or internet-based information, which might be hindered in remote locations or in air-gapped environments. In sectors such as mining or search and rescue (SAR) operations where network connectivity is unreliable, dependence on \emph{offboard} processing becomes a critical failure point. Perception systems that can run directly on vehicle hardware with limited resources is a crucial step towards Level 4/5 autonomy.
+
+Current methods for 3D object detection based on LiDAR~\parencite{ma2023detzero} have pushed performance boundaries using complex voxel-based \emph{backbone} architectures and multi-frame temporal data aggregation. Although highly accurate, these approaches come with significant computational overhead. Processing latency in such models often exceeds several hundred milliseconds, requiring the use of powerful and energy-intensive GPU hardware in an \emph{offboard} paradigm. This methodology is acceptable for high-definition map (\emph{HD map}) generation but fails to meet the needs of real-time autonomous navigation, where object detection and path planning must happen continuously with low latency.
+
+This research aims to directly address the onboard processing challenge by introducing \textbf{RT-LIVO2DM}: a new lightweight framework for \emph{\textbf{R}eal-\textbf{T}ime \textbf{L}idar-\textbf{I}nertial-\textbf{V}isual \textbf{O}dometry and \textbf{O}bject \textbf{D}etection}. The main contribution of this research is a computationally efficient architecture that synergistically fuses LiDAR point cloud data, inertial measurements, and computer vision imagery to simultaneously perform localization and object detection within strict real-time constraints. In contrast to \emph{offboard} approach provided by existing methods, RT-LIVO2DM is explicitly designed to be implemented on embedded systems, enabling high-precision 3D perception directly on autonomous agents.
+
+RT-LIVO2DM shifts the focus towards better class differentiation, rather than expending unnecessary computational resources on determining the exact size, shape, and contour of detected objects. This approach is expected to yield lower bounding box dimensions accuracy whilst significantly increasing class differentiation accuracy and reducing inference latency. The novel environmental perception approach is expected to provide rich real-time information to be fed to motion control or navigation systems, allowing for better decision making under the strict temporal and computational restraints of edge computing in autonomous vehicles.
+
+\section{Problem Statement}
+Based on the background described, the research problems can be formulated as follows:
+\begin{enumerate}[nolistsep]
+    \item How can a computationally efficient sensor fusion architecture combining LiDAR, inertial, and visual inputs be designed to enable simultaneous 3D object detection and odometry within real-time processing constraints on embedded (\emph{onboard}) hardware?
+    \item To what extent does the performance (precision, latency, and computational load) of the proposed architecture compare with existing methods that operate \emph{offboard}?
+\end{enumerate}
+
+\section{Scope and Limitations}
+
+This research is limited to the following scope:
+\begin{enumerate}[nolistsep]
+    \item The study focuses on the development and evaluation of the software architecture. Hardware design or sensor integration on a physical platform is not included.
+    \item Sensor fusion is limited to LiDAR (point cloud), IMU (inertial measurement unit), and a monocular camera. Other sensors such as radar or GPS are not utilized.
+    \item Quantitative performance evaluation is conducted \emph{offline} using the \emph{Waymo Open Dataset}, serving as a standard benchmark against other existing methods.
+    \item The primary evaluation metrics are 3D object detection accuracy and per-frame processing latency on NVIDIA Jetson AGX ORIN hardware.
+\end{enumerate}
+
+\section{Objectives}
+To address the above problem statements, this research has the following objectives:
+
+\begin{enumerate}[nolistsep]
+    \item To design and implement \textbf{RT-LIVO2DM}, a new lightweight framework architecture for real-time odometry and 3D object detection.
+    \item To quantitatively evaluate the accuracy of RT-LIVO2DM against existing methods using \emph{precision} and \emph{inference time} metrics on the Waymo Open Dataset.
+\end{enumerate}
+
+\section{Benefits}
+The results of this research are expected to provide the following benefits:
+\begin{enumerate}
+    \item Contribute a new architecture (\textbf{RT-LIVO2DM}) that is efficient for real-time 3D perception, which can serve as a reference for developing high-performance autonomous systems with limited computing resources.
+    \item Support the acceleration of safe and reliable autonomous technology deployment in various critical industry sectors (logistics, mining, public transport) by reducing latency and offboard processing dependencies.
+    \item Enhance the capability and reputation of Institut Teknologi Sepuluh Nopember in the fields of robotics, artificial intelligence, and autonomous systems research.
+\end{enumerate}

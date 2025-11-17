@@ -1,0 +1,30 @@
+\chapter*{ABSTRACT}
+\begin{center}
+  \large
+  \textbf{\tatitle}
+\end{center}
+\addcontentsline{toc}{chapter}{ABSTRACT}
+% Menyembunyikan nomor halaman
+\thispagestyle{empty}
+
+\begin{flushleft}
+  \setlength{\tabcolsep}{0pt}
+  \bfseries
+  \begin{tabular}{ll@{\hspace{6pt}}l}
+  Student Name / NRP&:& \name / \nrp\\
+  Department &:& \engdepartment{} \engfacultyshort{} - ITS\\
+  Advisors&:& 1. \advisor\\
+  & & 2. \coadvisor\\
+  \end{tabular}
+  \vspace{4ex}
+\end{flushleft}
+\textbf{Abstract}
+
+% Isi Abstrak
+
+\sloppy
+Advanced autonomous mobility is limited by the latency gap between environmental perception and action execution, especially in high-precision three-dimensional (3D) object detection systems. Current 3D detection models, despite being highly accurate, have a very high computational load and rely on non-real-time processing. This research addresses these challenges by introducing a novel lightweight framework for Real-Time Lidar-Inertial-Visual Odometry, Object Detection, and Mapping (RT-LIVO2DM). By designing an architecture that synergistically integrates data from LiDAR, IMU, and visual camera sensors, RT-LIVO2DM is aimed at computational efficiency on resource-constrained embedded systems. Furthermore, the sensor integration presented by the RT-LIVO2DM framework can facilitate high-precision 3D environmental mapping with color data. The environmental mapping data presented by RT-LIVO2DM paves the way for sustainable research related to Level 4/5 autonomous systems. The system's performance is quantitatively evaluated using the Waymo Open Dataset to validate its accuracy, latency, and computational load performance compared to other methods. This research is expected to demonstrate the feasibility of a high-accuracy 3D perception system capable of operating within real-time constraints on autonomous platforms and provide access to the collection of information-rich driving environment data, bridging the implementation gap and paving the way for safer and more reliable Level 4/5 autonomous systems.
+
+\vspace{2ex}
+\noindent
+\textbf{Keywords: \emph{Real-Time, 3D Object Detection, 3D Mapping, Autonomous Mobility, Sensor Fusion, LiDAR, IMU, Computer Vision}} 
