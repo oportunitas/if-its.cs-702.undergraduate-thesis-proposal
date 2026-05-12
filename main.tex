@@ -26,7 +26,7 @@
 \usepackage{etoolbox} % Mengubah fungsi default
 
 % Pengaturan jenis karakter
-\usepackage[utf8]{inputenc}
+\usepackage{fontspec}
 
 \usepackage[style=apa, backend=biber]{biblatex}
 \usepackage{enumitem} % Pembuatan list
@@ -36,7 +36,8 @@
 \usepackage[table,xcdraw]{xcolor} % Pewarnaan tabel
 \usepackage{eso-pic} % Untuk menggunakan background image di halaman
 \usepackage{amsmath}
-\usepackage{txfonts} % Font times
+\setmainfont{Times New Roman}
+\setsansfont{Arial}
 \usepackage{changepage} % Pembuatan teks kolom
 \usepackage{multicol} % Pembuatan kolom ganda
 \usepackage{multirow} % Pembuatan baris ganda
@@ -58,6 +59,7 @@
 \usepackage{wrapfig}
 \usepackage{float}
 
+% ini custom punya taib
 \usepackage{booktabs}
 \usepackage{algorithm}
 \usepackage{algpseudocode}
